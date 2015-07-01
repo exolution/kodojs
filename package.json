@@ -1,0 +1,31 @@
+{
+  "name": "kodo",
+  "version": "0.14.0",
+  "main": "index.js",
+  "description": "A CoC MVC framework on Node.js",
+  "author": {
+    "name": "exolution",
+    "email": "exolution@163.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/exolution/kodojs"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "http",
+    "mvc",
+    "application",
+    "framework",
+    "middleware",
+    "generator",
+    "yield"
+  ],
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "send": "^0.13.0",
+    "serve-static": "^1.10.0"
+  }
+}

@@ -1,0 +1,75 @@
+0.13.4 fix xparser bug
+0.13.3 fix bugs
+0.13.2 remove console.log replace with debug()
+0.13.1 update xparser class resolver
+0.13.0 update yield and generator.you can yield a generator now
+0.12.29 add addContext for ActionInstance
+0.12.28 fix bug
+0.12.27
+0.12.26
+0.12.25
+0.12.24
+0.12.23 fix Utils.clone bug!!
+0.12.22 update Action Filters you can set $ indicate the position of internalFilter
+0.12.21 fix xparser bug
+0.12.20 add action method "setTemplateEngine" set null for cancel template render
+0.12.19 fix a Dependency injection bug!!
+0.12.18 fix commit
+0.12.17 fix utils.post bug
+0.12.16 add utils.post
+0.12.15 refactor renderFilter and support action return a promise
+        server will return 404 while action return nothing(undefined)
+        fix a parseCookie bug when there is no cookie
+        update createModel for Model.js add testCase to generated model
+        change default config file from main to server
+0.12.14
+0.12.13 不是我更新快 尼玛npm提交每次必须加版本号 所以再加个版本吧
+0.12.12 fix bug
+0.12.11 add execQuery of model
+0.12.10 fix bugs
+0.12.9 fix bugs and add @release annotation
+0.12.8 add setTemplateEngine for set render engine
+0.12.7 Rewrite utils.getAllFiles
+       Add getAllJsFiles for get all javascript files excluding dotfiles
+       Add _yell for dump context of Action,Service,Model,Filter,Router
+       Add model generator
+
+0.12.6 Action add setCookie and removeCookie
+0.12.5 fix little bugs
+0.12.4 fix bugs
+0.12.3 remove handlebar
+0.12.2 Optimize performance of ReadyStream . Fix some bug
+0.12.1 Fix ReadyStream bug. ReadyStream inherit Transform now
+0.12.0 Refactor Filter architecture
+       StaticFileFilter as the terminal resolver( equal to Action);
+       Add ReadyStream as the proxy of response which all Filters based for dealing with data of response
+
+0.11.8 add @debug annotation
+0.11.7 update Config.js
+0.11.6 change disableCache method
+0.11.5 fix bugs
+0.11.4 add Utils.getJSON
+0.11.3 optimize
+0.11.2 add context to Action 's paramList injection
+0.11.1 update Filter system
+0.11.0 massive update. almost refactor all codes. add Filter components
+0.10.4 massive update. refactor static cache system
+0.10.3 fix a serious bug ：share data will conflict when concurrency request
+0.10.2 fix bug
+0.10.1 fix bug and add serve-static to dependencies
+0.10.0 fix mass bug
+       add model unit test and service unit test
+       modify namespace to lowercase first letter
+       add @Internal
+0.9.7 trim the trailing slash when save the static cache
+0.9.6 improve route path support regular express named group
+0.9.5 add mobile detect
+0.9.4 fix bug
+0.9.3 fix config bug
+0.9.2 upload production environment
+0.9.1 fix some bug
+      fix memory leak problem by use just once orm.connect
+0.9.0 A ready version for production environment
+0.8.4 fix mass bug and add Staticizer.js and manager
+0.8.3 fix bug and add Config.js Storage.js
+0.8.2 fix some bug and add ErrorHandler annotation
