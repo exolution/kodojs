@@ -24,9 +24,13 @@
     "yield"
   ],
   "dependencies": {
+    "accepts": "^1.2.13",
     "body-parser": "^1.13.1",
     "express": "^4.13.0",
+    "proxy-addr": "^1.0.8",
     "send": "^0.13.0",
-    "serve-static": "^1.10.0"
+    "serve-static": "^1.10.0",
+    "type-is": "^1.6.8",
+    "xclass": "^1.0.2"
   }
 }

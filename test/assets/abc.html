@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    xxx
+    <script>
+        var _slice = Array.prototype.slice;
+
+        function Class(classDefinition,noInitParent) {
+            var parentClass = classDefinition.extends;
+            var constructor = classDefinition.constructor;
+            delete classDefinition.constructor;
+            delete classDefinition.extends;
+            //实际的类
+            return function XClass() {
+                var parent = {},
+                        explicit = false,//本类构造器里是否显式调用了父类构造器
+                        instance = this;//本类实例
+                //继承本类的的成员
+                instance.__proto__ = classDefinition;
+                //此函数用于本类构造函数里调用父类构造函数 用后即焚
+                instance.$super = function() {
+                    if(!explicit) {
+                        //只允许执行一次
+                        explicit = true;
+                        if(parentClass) {
+                            //如果父类存在就调用父类的构造函数
+                            parentClass.apply(parent, _slice.call(arguments));
+                        }
+                    }
+
+                };
+                //调用本类的构造函数
+                var ret = constructor.apply(instance, _slice.call(arguments));
+                if(!explicit&&!noInitParent&&parentClass) {
+                    //如果本类构造函数未显式调用父类构造函数 则默认以无参方式调用父类的构造函数
+                    //可以指定noInitParent=true 取消默认调用父类的构造函数
+                    parentClass.call(parent);
+
+                }
+                //继承父类
+                instance.__proto__.__proto__ = parent;
+                //$super设置为父类 之前函数销毁
+                instance.$super = parent;
+                XClass.constructor = constructor;
+
+            }
+
+        }
+        var A = Class({
+            constructor : function(a) {
+                console.log('class A construct with params:', [].join.call(arguments, ','));
+                this.prop_A = a;
+                this.prop = 'A';
+            },
+            funcA       : function() {
+                console.log('call funcA:', this.prop_A);
+            },
+            func        : function() {
+                console.log('call func at[class A] with the private prop:', this.prop)
+            }
+        });
+        var B = Class({
+            extend      : A,
+            constructor : function(b) {
+
+                this.$super(2);
+                console.log('class B construct with params:', [].join.call(arguments, ','));
+                this.prop_B = b;
+                this.prop = 'B';
+
+            },
+            funcB       : function() {
+                console.log('call funcB:', this.prop_B);
+                console.log('prop_A:', this.prop_A);
+            },
+            funcX       : function() {
+                this.$super.funcA();
+            },
+            func        : function() {
+                console.log('call func at[class B] with the private prop:', this.prop)
+                this.$super.func();
+            }
+        });
+        var b = new B('haha');
+
+
+    </script>
+</body>
+</html>
